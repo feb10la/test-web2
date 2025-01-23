@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petunjuk Penggunaan</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background: linear-gradient(135deg, #000000, #010123, #101023);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .header {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            background: #fcfcfc;
+            color: rgb(8, 8, 12);
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: #b4b9ca;
+            transform: scale(1.05);
+        }
+
+        .content {
+            max-width: 600px;
+            text-align: left;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .content h1 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .content ul li {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+
+        .content ul li::before {
+            content: "\2022";
+            color: #ffffff;
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <a href="dashboard.html" class="back-button"> Kembali</a>
+    </div>
+    <div class="content">
+        <h1>Petunjuk Penggunaan</h1>
+        <p>Aplikasi ini dirancang untuk membantu pengguna mempelajari materi dengan cara interaktif menggunakan
+            Augmented Reality. Berikut adalah tata cara penggunaan:</p>
+        <ul>
+            <li><strong>Scan Marker / Start:</strong> Tekan tombol ini untuk memulai pengalaman AR dengan memindai
+                marker yang telah disediakan.</li>
+            <li><strong>Guide:</strong> Tombol ini akan membawa Anda ke halaman petunjuk penggunaan untuk memahami
+                fungsi aplikasi.</li>
+            <li><strong>AR Marker:</strong> Gunakan tombol ini untuk melihat daftar marker yang kompatibel dengan
+                aplikasi.</li>
+            <li><strong>About:</strong> Tombol ini menyediakan informasi mengenai aplikasi dan pengembangnya.</li>
+        </ul>
+        <p>Pastikan perangkat Anda memiliki kamera yang aktif dan akses internet stabil untuk pengalaman terbaik.</p>
+    </div>
+</body>
+
+</html>

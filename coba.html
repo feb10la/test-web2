@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js/aframe/build/aframe-ar.js"></script>
+    <script
+        src="https://cdn.jsdelivr.net/gh/aframe-io/aframe-gesture-handler/dist/aframe-gesture-handler.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+</head>
+
+<body>
+    <a-scene mindar-image="imageTargetSrc: ./marker/1oldibmpc.mind; maxTrack: 4" color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <!--card images-->
+            <img id="1oldibmpcCard" src="./marker/Ar Tracking PNG/1oldibmpc.png">
+            <!--3D models-->
+            <a-asset-item id="1oldibmpcModel" src="./assets/models/1oldibmpc/1oldibmpc.glb"></a-asset-item>
+        </a-assets>
+        <a-camera look-controls="pointerLockEnabled: true; touchEnabled: true;"></a-camera>
+
+
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-plane src="#1oldibmpcCard" position="0 0 0" height="0.5" width="1" rotation="0 0 0"> </a-plane>
+            <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+            <a-gltf-model scale="0.2 0.2 0.2" rotation="0 0 0" position="0 0 0.1" gesture-handler src="#1oldibmpcModel"
+                gesture-handler></a-gltf-model>
+    </a-scene>
+</body>
+
+</html>

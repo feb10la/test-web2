@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <!-- the folllowing script is needed to animate gltf files -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v7.2.0/dist/aframe-extras.min.js"></script>
+    <!-- MindAR library -->
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
+
+    <style>
+        .back-btn {
+            position: fixed;
+            top: 1rem;
+            left: 2rem;
+            background: #6b6767;
+            color: rgb(255, 255, 255);
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            z-index: 1000;
+        }
+
+        .back-btn:hover {
+            background: #b4b9ca;
+            transform: scale(1.05);
+        }
+    </style>
+    <title>Selamat Datang!</title>
+</head>
+
+<body>
+
+    <a-scene mindar-image="imageTargetSrc: ./marker/targets.mind; maxTrack: 4" color-space="sRGB"
+        renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false"
+        device-orientation-permission-ui="enabled: false">
+        <a-assets>
+            <!--card images--> <!-- output -->
+            <img id="1oldibmpcCard" src="./marker/Ar Tracking PNG/1oldibmpc.png">
+            <img id="2joystickCard" src="./marker/Ar Tracking PNG/2joystick.png">
+            <img id="3trackballmouseCard" src="./marker/Ar Tracking PNG/3trackballmouse.png">
+            <img id="4keyboardCard" src="./marker/Ar Tracking PNG/4keyboard.png">
+            <img id="5oldwebcamCard" src="./marker/Ar Tracking PNG/5oldwebcam.png">
+            <img id="6oldplaystationCard" src="./marker/Ar Tracking PNG/6oldplaystation.png">
+
+            <img id="7cpuCard" src="./marker/Ar Tracking PNG/7cpu.png">
+            <img id="8modemCard" src="./marker/Ar Tracking PNG/8modem.png">
+            <img id="9routerCard" src="./marker/Ar Tracking PNG/9router.png">
+            <img id="10powersupplyCard" src="./marker/Ar Tracking PNG/10powersupply.png">
+            <img id="11coolingfanCard" src="./marker/Ar Tracking PNG/11coolingfan.png">
+            <img id="12motherboardCard" src="./marker/Ar Tracking PNG/12motherboard.png">
+            <img id="13ramstickCard" src="./marker/Ar Tracking PNG/13ramstick.png">
+            <img id="14gpuCard" src="./marker/Ar Tracking PNG/14gpu.png">
+            <img id="15raspberrypiCard" src="./marker/Ar Tracking PNG/15raspberrypi.png">
+
+            <img id="16floppydiskCard" src="./marker/Ar Tracking PNG/16floppydisk.png">
+            <img id="17tapedriveCard" src="./marker/Ar Tracking PNG/17tapedrive.png">
+            <img id="18ssdCard" src="./marker/Ar Tracking PNG/18ssd.png">
+            <img id="19hddCard" src="./marker/Ar Tracking PNG/19hdd.png">
+            <img id="20usbCard" src="./marker/Ar Tracking PNG/20usb.png">
+
+            <img id="21crtmonitorCard" src="./marker/Ar Tracking PNG/21crtmonitor.png">
+            <img id="22dotmatrixprinterCard" src="./marker/Ar Tracking PNG/22dotmatrixprinter.png">
+            <img id="23oldprojectorCard" src="./marker/Ar Tracking PNG/23oldprojector.png">
+            <img id="24ledmonitorCard" src="./marker/Ar Tracking PNG/24ledmonitor.png">
+            <img id="25vrheadsetCard" src="./marker/Ar Tracking PNG/25vrheadset.png">
+
+            <!--3D models-->
+            <a-asset-item id="1oldibmpcModel" src="./assets/models/1oldibmpc/1oldibmpc.glb"></a-asset-item>
+            <a-asset-item id="2joystickModel" src="./assets/models/2joystick/2joystick.glb"></a-asset-item>
+            <a-asset-item id="3trackballmouseModel"
+                src="./assets/models/3trackballmouse/3trackballmouse.glb"></a-asset-item>
+            <a-asset-item id="4keyboardModel" src="./assets/models/4keyboard/4keyboard.glb"></a-asset-item>
+            <a-asset-item id="5oldwebcamModel" src="./assets/models/5oldwebcam/5oldwebcam.glb"></a-asset-item>
+            <a-asset-item id="6oldplaystationModel"
+                src="./assets/models/6oldplaystation/6oldplaystation.glb"></a-asset-item>
+            <a-asset-item id="7cpuModel" src="./assets/models/7cpu/old_computer_tower-01.glb"></a-asset-item>
+            <a-asset-item id="8modemModel" src="./assets/models/8modem/8modem.glb"></a-asset-item>
+            <a-asset-item id="9routerModel" src="./assets/models/9router/9router.glb"></a-asset-item>
+            <a-asset-item id="10powersupplyModel" src="./assets/models/10powersupply/10powersupply.glb"></a-asset-item>
+            <a-asset-item id="11coolingfanModel" src="./assets/models/11coolingfan/11coolingfan.glb"></a-asset-item>
+            <a-asset-item id="12motherboardModel" src="./assets/models/12motherboard/12motherboard.glb"></a-asset-item>
+            <a-asset-item id="13ramstickModel" src="./assets/models/13ramstick/13ramstick.glb"></a-asset-item>
+            <a-asset-item id="14gpuModel" src="./assets/models/14gpu/14gpu.glb"></a-asset-item>
+            <a-asset-item id="15raspberrypiModel" src="./assets/models/15raspberrypi/15raspberrypi.glb"></a-asset-item>
+            <a-asset-item id="16floppydiskModel" src="./assets/models/16floppydisk/16floppydisk.glb"></a-asset-item>
+            <a-asset-item id="17tapedriveModel"
+                src="./assets/models/17tapedrive/ibm_728_magnetic_tape_drive.glb"></a-asset-item>
+            <a-asset-item id="18ssdModel" src="./assets/models/18ssd/18ssd.glb"></a-asset-item>
+            <a-asset-item id="19hddModel" src="./assets/models/19hdd/19hdd.glb"></a-asset-item>
+            <a-asset-item id="20usbModel" src="./assets/models/20usb/20usb.glb"></a-asset-item>
+            <a-asset-item id="21crtmonitorModel" src="./assets/models/21crtmonitor/21crtmonitor.glb"></a-asset-item>
+            <a-asset-item id="22dotmatrixprinterModel"
+                src="./assets/models/22dotmatrixprinter/22dotmatrixprinter.glb"></a-asset-item>
+            <a-asset-item id="23oldprojectorModel"
+                src="./assets/models/23oldprojector/23oldprojector.glb"></a-asset-item>
+            <a-asset-item id="24ledmonitorModel" src="./assets/models/24ledmonitor/24ledmonitor.glb"></a-asset-item>
+            <a-asset-item id="25vrheadsetModel" src="./assets/models/25vrheadset/25vrheadset.glb"></a-asset-item>
+        </a-assets>
+
+        <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
+
+        <a-entity mindar-image-target="targetIndex: 0">
+            <a-plane src="#1oldibmpcCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 -0.2 0.4" scale="0.4 0.4 0.4" src="#1oldibmpcModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 1">
+            <a-plane src="#2joystickCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 30 30" position="0 0.2 0.1" scale="0.3 0.3 0.3" src="#2joystickModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 2"> <!-- ini 3dnya masih horizontal belum beridri vertikal-->
+            <a-plane src="#3trackballmouseCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="180 270 270" position="0 0.3 0" scale="5 5 5" src="#3trackballmouseModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 3">
+            <a-plane src="#4keyboardCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.2 0.1" scale="0.2 0.2 0.2" src="#4keyboardModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 4">
+            <a-plane src="#5oldwebcamCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 0 0.5" scale="4.5 4.5 4.5" src="#5oldwebcamModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 5">
+            <a-plane src="#6oldplaystationCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.3 0.2" scale="1.5 1.5 1.5" src="#6oldplaystationModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 6">
+            <a-plane src="#7cpuCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 360 0" position="0 -0.2 0.5" scale="0.4 0.4 0.4" src="#7cpuModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 7">
+            <a-plane src="#8modemCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 0 0.7" scale="0.005 0.005 0.005" src="#8modemModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 8">
+            <a-plane src="#9routerCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 0 0.5" scale="4 4 4" src="#9routerModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 9">
+            <a-plane src="#10powersupplyCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="-0.1 0.3 0.3" scale="0.3 0.3 0.3" src="#10powersupplyModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 10">
+            <a-plane src="#11coolingfanCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.2 0.2" scale="-0.007 -0.007 -0.007"
+                    src="#11coolingfanModel" animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 11">
+            <a-plane src="#12motherboardCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 270 -20" position="0.8.9 0.8.9 0.3" scale="0.4 0.4 0.4"
+                    src="#12motherboardModel" animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 12">
+            <a-plane src="#13ramstickCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 100 0" position="0 0 0.1" scale="0.2 0.2 0.2" src="#13ramstickModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 13">
+            <a-plane src="#14gpuCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 0 0.3" scale="0.2 0.2 0.2" src="#14gpuModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 14">
+            <a-plane src="#15raspberrypiCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.2 0.1" scale="0.1 0.1 0.1" src="#15raspberrypiModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 15">
+            <a-plane src="#16floppydiskCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 180 0" position="0 0.3 -0.1" scale="0.07 0.07 0.07" src="#16floppydiskModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 16">
+            <a-plane src="#17tapedriveCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0 " position="0 -0.3 0.3" scale="0.5 0.5 0.5" src="#17tapedriveModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 17">
+            <a-plane src="#18ssdCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="-2.3 -2.5 -0.1" scale="1 1 1" src="#18ssdModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 18">
+            <a-plane src="#19hddCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.2 0.1" scale="0.2 0.2 0.2" src="#19hddModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 19">
+            <a-plane src="#20usbCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.5 0.1" scale="0.4 0.4 0.4" src="#20usbModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 20">
+            <a-plane src="#21crtmonitorCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 270 0" position="0 0.3 0.7" scale="0.004 0.004 0.004" src="#21crtmonitorModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 21">
+            <a-plane src="#22dotmatrixprinterCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 90 90" position="0 0.3 0" scale="2 2 2" src="#22dotmatrixprinterModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 22">
+            <a-plane src="#23oldprojectorCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="90 0 0" position="0 0.2 0.1" scale="1.2 1.2 1.2" src="#23oldprojectorModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 23">
+            <a-plane src="#24ledmonitorCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 90 0" position="0 0 0.1" scale="0.5 0.5 0.5" src="#24ledmonitorModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+        <a-entity mindar-image-target="targetIndex: 24">
+            <a-plane src="#25vrheadsetCard" position="0 0 0" height="1.5" width="1" rotation="0 0 0">
+                <!-- animation-mixer diperlukan untuk menjalankan animasi pada model 3d (jika tersedia) -->
+                <a-gltf-model rotation="0 0 0" position="0 0.4 0.5" scale="0.5 0.5 0.5" src="#25vrheadsetModel"
+                    animation-mixer></a-gltf-model>
+        </a-entity>
+
+    </a-scene>
+
+    <a href="./CamAR/dashboard.html" class="back-btn">Back</a>
+    <div id="UI">Marker information here.</div>
+</body>
+
+<script src="app.js"></script>
+
+
+</html>

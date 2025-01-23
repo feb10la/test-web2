@@ -1,0 +1,88 @@
+/* Reset body layout */
+body {
+    margin: 0;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Splash screen container */
+#splash-screen {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* Center content absolutely */
+/* Center content absolutely */
+#content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Logo group styling */
+#logo-group {
+    display: flex;
+    gap: 20px;
+    /* Jarak antar logo */
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+#logo-group img,
+#app-logo img {
+    width: 80px;
+    height: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+#app-logo img {
+    width: 120px;
+    /* Ukuran lebih besar untuk logo aplikasi */
+}
+
+#logo-group img:hover,
+#app-logo img:hover {
+    transform: scale(1.2);
+    /* Efek zoom saat hover */
+}
+
+/* Loading text at bottom */
+#loading {
+    position: absolute;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5rem;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+/* Shared style for fade-in elements */
+.fade {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
